@@ -1,0 +1,327 @@
+body{
+    background-image: url("Planning1.jpg");
+    padding: 0;
+    margin:0;
+}
+
+/*Main Container (holds everything)*/
+.content_container{
+    width:60%;
+    min-height:100vh;
+    background-color: #525252;
+    margin:auto;
+    padding:40px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+}
+
+/*Header*/
+header{
+    width: 100%;
+    text-align: center;
+    color:white;
+    box-sizing: border-box;
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+header a{
+    margin:10px;
+    font-size: 1.5em;
+    cursor:pointer;
+    color:#CACACA;
+}
+header a:hover{
+    text-decoration: underline;
+    color:white;
+}
+.active{
+    text-decoration: underline;
+    color:white
+}
+header h1{
+    font-size: 4em;
+    margin:5px;
+}
+
+header select{
+    text-decoration: none;
+    font-size: 1em;
+    padding:7px;
+    margin:10px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    border:none;
+    border-radius: 20px;
+}
+
+.create{
+    text-decoration: none;
+    font-size: 1em;
+    padding:7px;
+    margin:10px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    border:none;
+    border-radius: 20px;
+    background-color: rgb(0, 199, 0);
+    color:white;
+}
+
+.create:hover{
+    background-color: rgb(0, 150, 0);
+}
+/*Tasks Main Container (holds all of the tasks)*/
+.task_container{
+    width:100%;
+    background-color: white;
+    padding:10px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.task{
+    margin:10px;
+}
+/*Text Container*/
+.text_container{
+    background-color: white;
+    color:black;
+    width:100%;
+    padding:5px;
+    margin:0px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: inline-block;
+}
+.text_container h2{
+    margin:0;
+    padding:0;
+    margin-bottom: 5px;
+    font-size: 1.25em;
+}
+.text_container h4{
+    margin:0;
+    padding:0;
+}
+.text_container p{
+    margin:0;
+    padding:0;
+    font-size: 0.75em;
+}
+.date{
+    width:32%;
+    display: inline-block;
+}
+.task img{
+    width:30px;
+    margin:5px;
+}
+
+.task img:hover{
+    filter: brightness(50%);
+}
+
+/*Task Background - Category View (Shows priority by color)*/
+.task_background{
+    /* background-color: white; */
+    width:100%;
+    padding:10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.priority_1{
+    background-color: #830000;
+    color: white;
+}
+.priority_2{
+    background-color: #0D1729;
+    color: white;
+}
+.priority_3{
+    background-color:  #1D345D;
+    color: white;
+}
+.priority_4{
+    background-color: #2C4F8C;
+    color: white;
+}
+.priority_5{
+    background-color:  #3B69BA;
+    color: white;
+}
+
+/*Images*/
+.image_container{
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    margin:5px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/*Tooltip*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 150px;
+    background-color: #0D1729;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    opacity: 0;
+    transition: opacity 1s;
+    animation-delay: 2s;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0D1729 transparent transparent transparent;
+}
+
+/*Modal Box*/
+.modal input[type="text"]{
+    width:100%;
+    border:none;
+    border-bottom: 2px solid black;
+}
+
+.modal input{
+    margin-bottom: 10px;
+}
+.modal h1{
+    text-align: center;
+}
+
+.modal select{
+    margin-bottom: 10px;
+}
+
+#modalData{
+    width:80%;
+    margin:auto;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    padding-bottom: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 80%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.categoryORpriority p{
+    width:49%;
+    display: inline-block;
+    margin:0px;
+}
+
+
+/*Circle for priority*/
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/*Create of edit styling*/
+
+/*Style adjustments for a phone or tablet*/          
+@media only screen and (max-width: 700px){
+    .task_container{
+        border-radius: 0;
+    }
+    header h1{
+        font-size: 3em;
+        margin:0px;
+    }
+    .content_container{
+        width: 100%;
+        padding:0;
+        padding-bottom:5px;
+    }
+    
+    .text_container{
+        width:100%;
+    }
+}
+/*Small Computers*/
+@media only screen and (min-width: 701px){ 
+    .text_container{
+        width:100%;
+    }
+}
+/*Normal Computers*/
+@media only screen and (min-width: 1050px){
+    .text_container{
+        width:75%;
+    }
+
+    .image_container{
+        width: 20%;
+    }
+}
+/*Large Moniters*/
+@media only screen and (min-width: 1398px){
+    .text_container{
+        width:83%;
+    }
+
+    .image_container{
+        width: 15%;
+    }
+}

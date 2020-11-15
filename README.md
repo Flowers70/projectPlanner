@@ -6,3 +6,5 @@
   - This is the styling page that makes the web page look nice
 - dataBaseConnection.php
   - This is the page that does all of the SQL
+- taskCreate.php
+  - This is the page that creates the html for the create task button

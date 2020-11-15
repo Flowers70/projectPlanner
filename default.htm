@@ -36,17 +36,17 @@
             }
 
             function getViews(){
-                $("#viewResults").load("Views.php", {"sortColumn":currentSort, "viewType":currentView});
+                $("#viewResults").load("display.php", {"sortColumn":currentSort, "viewType":currentView});
             }
 
             function viewTask(taskID){
                 $("#myModal").attr("style","display:block");
-                $("#modalData").load("taskDetails.php", {"task_ID":taskID});
+                $("#modalData").load("taskView.php", {"task_ID":taskID});
             }
 
               function createTask(task_ID){
                 $("#myModal").attr("style","display:block");
-                $("#modalData").load("CreateorEdit.php", {"task_ID":task_ID});
+                $("#modalData").load("taskCreate.php", {"task_ID":task_ID});
             }
 
             function demonstration(){

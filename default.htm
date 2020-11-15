@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Links for Title font-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Links for style -->
+        <link rel="stylesheet" href="ProjectStyle.css">
+        <script>
+            // Function to retrieve the view (category or priority)
+            var currentSort = 1;
+            var currentView = 1;
+
+            function changeSort(){ 
+                var sort = document.getElementById("sortBy").value;
+                console.log(sort);
+                currentSort = sort;
+                getViews();
+            }
+
+            function changeView(view){
+                currentView = view;
+                if(view == 1){
+                    $("#viewCategory").addClass("active");
+                    $("#viewPriority").removeClass("active");
+                }else{
+                    $("#viewCategory").removeClass("active");
+                    $("#viewPriority").addClass("active");
+                }
+                getViews();
+            }
+
+            function getViews(){
+                $("#viewResults").load("Views.php", {"sortColumn":currentSort, "viewType":currentView});
+            }
+
+            function viewTask(taskID){
+                $("#myModal").attr("style","display:block");
+                $("#modalData").load("taskDetails.php", {"task_ID":taskID});
+            }
+
+              function createTask(task_ID){
+                $("#myModal").attr("style","display:block");
+                $("#modalData").load("CreateorEdit.php", {"task_ID":task_ID});
+            }
+
+            function demonstration(){
+                alert("This is a demonstration of the project and this is disabled because of security reasons");
+            }
+        </script>
+    </head>
+    <body onload="getViews()">
+        <div class="content_container">
+            <header>
+                <h1>Project Planner</h1>
+                <hr>
+                <a id="viewCategory" class="active" onclick="changeView(1)">Category</a><a id="viewPriority" onclick="changeView(2)">Priority</a> 
+                <div class="tooltip" >
+                    <select id="sortBy" onchange="changeSort()">
+                    <option value="1">Create</option>
+                    <option value="2">Due</option>
+                    <option value="3">Goal</option>
+                </select>
+                <span class="tooltiptext">Choose an option to sort by</span>
+                </div>
+                     <button class="create" onclick="createTask(0)">Create Task</button>
+            </header>
+
+            <!-- View of Category or Priority -->
+            <div id="viewResults">
+
+            </div>
+        </div>
+         <!-- The Modal -->
+         <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalData"></div>
+            <!--Php goes here-->
+            </div>
+        
+        </div>
+
+        <script>
+
+          
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            // var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            // btn.onclick = function() {
+            // modal.style.display = "block";
+            // }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+            }
+
+            function closeModal(){
+                modal.style.display = "none";
+            }
+        </script>
+    </body>
+</html>

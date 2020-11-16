@@ -7,4 +7,8 @@
 - dataBaseConnection.php
   - This is the page that does all of the SQL
 - taskCreate.php
-  - This is the page that creates the html for the create task button
+  - This is the page that creates the HTML for the create task button
+- taskView.php
+  - This is the page that creates the HTML for viewing the task details
+- display.php
+  - This is the page the generates the HTML for all of the tasks
